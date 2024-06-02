@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 500px;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            padding: 20px;
+            display: block;
+            margin: 20px auto;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            
+        
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color: #333; text-align: center; padding: 10px;">
+        <h1 style="color:white">Heart Disease Prediction</h1>
+    </header>
+    <div class="container">
+        <h1>Heart Disease Prediction</h1>
+        <form action="/predict" method="post">
+            <div style="display: flex; flex-wrap: wrap;">
+                <div style="width: calc(50% - 10px); margin-right: 20px;">
+                    <label for="BMI">BMI:</label>
+                    <input type="number" id="BMI" name="BMI" step="0.01" required><br><br>
+
+                    <label for="PhysicalHealth">Physical Health:</label>
+                    <input type="number" id="PhysicalHealth" name="PhysicalHealth" step="0.01" required><br><br>
+
+                    <label for="MentalHealth">Mental Health:</label>
+                    <input type="number" id="MentalHealth" name="MentalHealth" step="0.01" required><br><br>
+
+                    <label for="SleepTime">Sleep Time:</label>
+                    <input type="number" id="SleepTime" name="SleepTime" step="0.01" required><br><br>
+
+                    <label for="Smoking">Smoking:</label>
+                    <select id="Smoking" name="Smoking" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br><br>
+
+                    <label for="AlcoholDrinking">Alcohol Drinking:</label>
+                    <select id="AlcoholDrinking" name="AlcoholDrinking" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br><br>
+
+                    <label for="Stroke">Stroke:</label>
+                    <select id="Stroke" name="Stroke" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br><br>
+
+                    <label for="DiffWalking">Difficulty Walking:</label>
+                    <select id="DiffWalking" name="DiffWalking" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br><br>
+
+                    <label for="Sex">Sex:</label>
+                    <select id="Sex" name="Sex" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select><br><br>
+
+                   
+                </div>
+                <div style="width: calc(50% - 10px);">
+                    <label for="AgeCategory">Age Category:</label>
+                    <select id="AgeCategory" name="AgeCategory" required>
+                        <option value="Young">Young</option>
+                        <option value="Middle-aged">Middle-aged</option>
+                        <option value="Elderly">Elderly</option>
+                    </select><br><br>
+
+                    <label for="Race">Race:</label>
+                    <select id="Race" name="Race" required>
+                        <option value="White">White</option>
+                        <option value="Black">Black</option>
+                        <option value="Asian">Asian</option>
+                        <option value="Other">Other</option>
+                    </select><br><br>
+
+                    <label for="Diabetic">Diabetic:</label>
+                    <select id="Diabetic" name="Diabetic" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br><br>
+
+                    <label for="PhysicalActivity">Physical Activity:</label>
+                    <select id="PhysicalActivity" name="PhysicalActivity" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br><br>
+
+                    <label for="GenHealth">General Health:</label>
+                    <select id="GenHealth" name="GenHealth" required>
+                        <option value="Excellent">Excellent</option>
+                        <option value="Very good">Very good</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Poor">Poor</option>
+                    </select><br><br>
+
+                    <label for="Asthma">Asthma:</label>
+                    <select id="Asthma" name="Asthma" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br><br>
+
+                    <label for="KidneyDisease">Kidney Disease:</label>
+                    <select id="KidneyDisease" name="KidneyDisease" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br><br>
+
+                    <label for="SkinCancer">Skin Cancer:</label>
+                    <select id="SkinCancer" name="SkinCancer" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br><br>
+                </div>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        <br>
+        {% if result %}
+        <div class="result">
+            <h2>Prediction Result:</h2>
+            <p>Probability of having heart disease: {{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+    <footer style="background-color: #333; color: #fff; text-align: center; padding: 10px;">
+        <p>All rights reserved @sarojbhandari</p>
+    </footer>
+</body
